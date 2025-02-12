@@ -75,8 +75,11 @@ public class PhaseRepository {
     }
 
     public List<Phase> getAllPhases(int number) {
-
         return map.get(number);
+    }
+
+    public Map<Integer, List<Phase>> getAllQuest() {
+        return map;
     }
 
     public void addQuest(List<Phase> phases) {

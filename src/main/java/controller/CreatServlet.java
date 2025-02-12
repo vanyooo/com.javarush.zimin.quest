@@ -50,7 +50,8 @@ public class CreatServlet extends HttpServlet {
             phaseRepository.addQuest(newPhases);
         }
 
-        session.setAttribute("questNumber", 3);
-        resp.sendRedirect("gameServlet");
+//        session.setAttribute("questNumber", 3);
+//        resp.sendRedirect("gameServlet");
+        resp.sendRedirect("quest.jsp");
     }
 }

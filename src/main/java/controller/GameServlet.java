@@ -13,24 +13,39 @@ import java.io.IOException;
 @WebServlet(name = "GameServlet", value = "/gameServlet")
 public class GameServlet extends HttpServlet {
 
+
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        PhaseGame game = (PhaseGame) session.getAttribute("gameState");
-        String name = req.getParameter("userName");
+//        PhaseGame game = (PhaseGame) session.getAttribute("gameState");
+
         String questParam = req.getParameter("quest");
         if (questParam != null) {
             int questNumber = Integer.parseInt(questParam);
             session.setAttribute("questNumber", questNumber);
+            session.removeAttribute("gameState");
         }
+//        if (questParam != null) {
+//            int questNumber = Integer.parseInt(questParam);
+//            session.setAttribute("questNumber", questNumber);
+//        }
+
         Integer questNumber = (Integer) session.getAttribute("questNumber");
-        if (name != null && !name.trim().isEmpty()) {
-            session.setAttribute("userName", name);
-        }
-        System.out.println("-".repeat(100));
-        if (game == null) {
+        PhaseGame game = (PhaseGame) session.getAttribute("gameState");
+        if (game == null || questParam != null) {
             game = new PhaseGame(questNumber);
             session.setAttribute("gameState", game);
+        }
+//        if (game == null) {
+//            game = new PhaseGame(questNumber);
+//            session.setAttribute("gameState", game);
+//        }
+
+
+        String name = req.getParameter("userName");
+        if (name != null && !name.trim().isEmpty()) {
+            session.setAttribute("userName", name);
         }
         Integer counter = (Integer) session.getAttribute("counter");
         if (counter == null) {
