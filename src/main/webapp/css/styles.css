@@ -1,0 +1,67 @@
+/* Фон страницы */
+body {
+    background: url('../img/space.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+
+/* Заголовок */
+h1 {
+    animation: fadeIn 1s ease-in-out;
+    font-size: 3rem;
+    color: #ffcc00;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Контейнер формы */
+.container {
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.7); /* Затемненный фон */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Кнопки */
+.btn {
+    transition: 0.3s;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Поле ввода */
+.input-sci-fi {
+    background: rgba(0, 0, 0, 0.8); /* Затемнённый фон */
+    color: #00ffcc; /* Неоновый цвет текста */
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border: 2px solid #00ffcc; /* Неоновая обводка */
+    border-radius: 10px;
+    outline: none;
+    transition: 0.3s;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+.input-sci-fi:focus {
+    border-color: #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+}
+
+.input-sci-fi::placeholder {
+    color: rgba(0, 255, 204, 0.5);
+    text-transform: uppercase;
+    font-size: 1rem;
+}
